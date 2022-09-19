@@ -6,6 +6,8 @@ let arrayOfFiles = [];
 //array of all files in folder
 let files = [];
 
+let boards;
+
 //checking if user entered directory path parameters
 if (process.argv.length === 2) {
 	console.error("Specify a file path!");
@@ -42,7 +44,7 @@ if (process.argv.length === 2) {
 	}
 	//sorting json files first by vendor name then boards name
 	try {
-		let boards = mergedObject["boards"].sort(
+		boards = mergedObject["boards"].sort(
 			(a, b) => a.vendor.localeCompare(b.vendor) || a.name.localeCompare(b.name)
 		);
 	} catch (err) {
